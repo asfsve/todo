@@ -1,112 +1,108 @@
-:root {
-    --primary-clr: #b38add;
-}
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
-
 body {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #e2e1dc;
-}
-
-.container {
-    position: relative;
-    width: 1200px;
-    min-height: 850px;
-    margin: 0 auto;
-    padding: 5px;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    color: #878895;
-    border-radius: 5px;
-    background-color: #fff;
-}
-
-.calendar::before,
-.calendar::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 100%;
-    width: 12px;
-    height: 97%;
-    border-radius: 0 5px 5px 0;
-    background-color: #d3d5d6d7;
-    transform: translateY(-50%);
-}
-
-.calendar::before {
-    height: 94%;
-    left: calc(100% + 12px);
-    background-color: rgb(153, 153, 153);
-}
-.calendar .month {
-  width: 100%;
-  height: 15px;
+  background: #2f3542;
   display: flex;
+  justify-content: center;
   align-items: center;
+  height: 100vh;
+}
+
+/* 전체 카드 */
+.container {
+  width: 600px;
+  background: #f5f6fa;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+/* 캘린더 영역 */
+.calendar {
+  padding: 30px;
+}
+
+/* 상단 월 영역 */
+.month {
+  display: flex;
   justify-content: space-between;
-  padding: 0 50px;
-  font-size: 1.2rem;
-  font-weight: 500;
-  text-transform: capitalize;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
-.calendar .month .prev,
-.calendar .month .next {
-    cursor: pointer;
+.month .date {
+  font-size: 28px;
+  font-weight: bold;
 }
 
-.calendar .month .prev,
-.calendar .month .next {
-    color: var(--primary-clr)
+.month i {
+  cursor: pointer;
+  font-size: 22px;
 }
 
-.calendar .weekdays {
-    width: 100%;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    font-size: 1rem;
-    font-weight: 500;
-    text-transform: capitalize;
-}.calendar .weekdays div {
-    width: 14.28%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.calendar .days {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 0 20px;
-    font-size: 1rem;
-    font-weight: 500;
-    margin-bottom: 20px;
+/* 요일 */
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 15px;
 }
 
-.calendar .days div {
-    width: 14.28%;
-    height: 90px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    color: var(--primary-clr);
-    border: 1px solid #f5f5f5;
+.weekdays div {
+  text-align: center;
+  font-weight: bold;
+  color: #888;
+  font-size: 16px;
+}
+
+/* 날짜 */
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.day {
+  height: 70px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.day:hover {
+  background: #dfe4ea;
+}
+
+.today {
+  background: #6c5ce7;
+  color: white;
+  font-weight: bold;
+}
+
+.prev-date,
+.next-date {
+  color: #bbb;
+}
+
+/* 하단 */
+.goto-today {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.goto input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.goto button,
+.today-btn {
+  padding: 8px 14px;
+  border: none;
+  background: #6c5ce7;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
 }
