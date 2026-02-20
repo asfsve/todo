@@ -138,3 +138,15 @@ gotoBtn.addEventListener("click", () => {
     }
   }
 });
+
+
+todayBtn.addEventListener(".click" , () => {
+    today = newDate();
+    month = today.getMonth();
+    year = today.getFullYear();
+    initCalendar();
+});
+
+dateInput.addEventListener("keyup" , (e) => {
+    dateInput.value = dateInput.value.replace(/[^0-9]/g, "");
+});
